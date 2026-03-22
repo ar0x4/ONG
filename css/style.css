@@ -1,0 +1,508 @@
+/* ONG — Operation Name Generator: Styles */
+
+:root {
+  --bg-primary: #0d1117;
+  --bg-secondary: #161b22;
+  --bg-card: #161b22;
+  --border: #30363d;
+  --accent: #ff6b35;
+  --accent-glow: rgba(255, 107, 53, 0.3);
+  --accent-dim: rgba(255, 107, 53, 0.15);
+  --text-primary: #e6edf3;
+  --text-secondary: #8b949e;
+  --copied: #3fb950;
+  --radius: 6px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, sans-serif;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* --- Container --- */
+.container {
+  max-width: 800px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 2rem 1.5rem;
+  flex: 1;
+}
+
+/* --- Header --- */
+.header {
+  text-align: center;
+  margin-bottom: 2.5rem;
+  padding-bottom: 2rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.logo {
+  font-size: 4rem;
+  font-weight: 900;
+  letter-spacing: 0.3em;
+  color: var(--accent);
+  text-shadow: 0 0 40px var(--accent-glow);
+  margin-bottom: 0.25rem;
+}
+
+.subtitle {
+  font-size: 0.75rem;
+  letter-spacing: 0.4em;
+  color: var(--text-secondary);
+  font-weight: 600;
+}
+
+.tagline {
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  margin-top: 0.75rem;
+  opacity: 0.7;
+}
+
+/* --- Control Groups --- */
+.control-group {
+  margin-bottom: 1.25rem;
+}
+
+.hidden {
+  display: none !important;
+}
+
+/* --- Toggle Buttons --- */
+.toggle-row {
+  display: flex;
+  justify-content: center;
+  gap: 2px;
+  background: var(--bg-secondary);
+  border-radius: var(--radius);
+  padding: 3px;
+  border: 1px solid var(--border);
+  width: fit-content;
+  margin: 0 auto;
+}
+
+.mode-btn, .output-btn {
+  background: transparent;
+  border: none;
+  color: var(--text-secondary);
+  padding: 0.5rem 1.5rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: all 0.2s;
+  font-family: inherit;
+}
+
+.mode-btn:hover, .output-btn:hover {
+  color: var(--text-primary);
+}
+
+.mode-btn.active, .output-btn.active {
+  background: var(--accent);
+  color: var(--bg-primary);
+}
+
+/* --- Keyword Input --- */
+.input-label {
+  display: block;
+  font-size: 0.65rem;
+  letter-spacing: 0.2em;
+  color: var(--accent);
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  text-align: center;
+}
+
+.keyword-input {
+  display: block;
+  width: 100%;
+  max-width: 400px;
+  margin: 0 auto;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 0.75rem 1rem;
+  color: var(--text-primary);
+  font-size: 1rem;
+  font-family: "SF Mono", "Fira Code", "Cascadia Code", monospace;
+  letter-spacing: 0.05em;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.keyword-input:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px var(--accent-dim);
+}
+
+.keyword-input::placeholder {
+  color: var(--text-secondary);
+  opacity: 0.5;
+}
+
+/* --- Theme Filters --- */
+.theme-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  justify-content: center;
+}
+
+.theme-pill {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border);
+  color: var(--text-secondary);
+  padding: 0.35rem 0.85rem;
+  border-radius: 20px;
+  font-size: 0.7rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+  font-family: inherit;
+  letter-spacing: 0.05em;
+}
+
+.theme-pill:hover {
+  border-color: var(--accent);
+  color: var(--text-primary);
+}
+
+.theme-pill.active {
+  background: var(--accent-dim);
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+/* --- Generate Button --- */
+.generate-btn {
+  display: block;
+  width: 100%;
+  max-width: 400px;
+  margin: 1.5rem auto 0;
+  padding: 1rem 2rem;
+  background: var(--accent);
+  color: var(--bg-primary);
+  border: none;
+  border-radius: var(--radius);
+  font-size: 1rem;
+  font-weight: 900;
+  letter-spacing: 0.3em;
+  cursor: pointer;
+  transition: all 0.2s;
+  font-family: inherit;
+}
+
+.generate-btn:hover {
+  box-shadow: 0 0 30px var(--accent-glow), 0 4px 15px rgba(0, 0, 0, 0.3);
+  transform: translateY(-1px);
+}
+
+.generate-btn:active {
+  transform: translateY(0);
+}
+
+/* --- Results: Batch Grid --- */
+.results-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.name-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.25rem;
+  text-align: center;
+  transition: all 0.2s;
+  animation: cardIn 0.3s ease-out both;
+}
+
+.name-card:nth-child(1) { animation-delay: 0s; }
+.name-card:nth-child(2) { animation-delay: 0.05s; }
+.name-card:nth-child(3) { animation-delay: 0.1s; }
+.name-card:nth-child(4) { animation-delay: 0.15s; }
+.name-card:nth-child(5) { animation-delay: 0.2s; }
+.name-card:nth-child(6) { animation-delay: 0.25s; }
+
+@keyframes cardIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.name-card:hover {
+  border-color: var(--accent);
+  box-shadow: 0 0 15px var(--accent-dim);
+}
+
+.card-theme {
+  font-size: 0.65rem;
+  color: var(--text-secondary);
+  letter-spacing: 0.1em;
+  margin-bottom: 0.5rem;
+}
+
+.card-label {
+  font-size: 0.6rem;
+  color: var(--text-secondary);
+  letter-spacing: 0.25em;
+  font-weight: 700;
+  opacity: 0.6;
+}
+
+.card-name {
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: var(--accent);
+  font-family: "SF Mono", "Fira Code", "Cascadia Code", monospace;
+  letter-spacing: 0.05em;
+  margin: 0.35rem 0 0.75rem;
+  word-break: break-word;
+}
+
+/* --- Copy Button --- */
+.copy-btn {
+  background: transparent;
+  border: 1px solid var(--border);
+  color: var(--text-secondary);
+  padding: 0.3rem 0.8rem;
+  border-radius: 4px;
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  cursor: pointer;
+  transition: all 0.2s;
+  font-family: inherit;
+}
+
+.copy-btn:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.copy-btn.copied {
+  border-color: var(--copied);
+  color: var(--copied);
+}
+
+.copy-sm {
+  font-size: 0.55rem;
+  padding: 0.2rem 0.6rem;
+}
+
+/* --- Results: Spotlight --- */
+.results-spotlight {
+  margin-top: 2rem;
+  display: flex;
+  justify-content: center;
+}
+
+.spotlight-card {
+  text-align: center;
+  padding: 3rem 2rem;
+  opacity: 0;
+  transform: scale(0.9);
+  transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.spotlight-card.revealed {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.spotlight-theme {
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  letter-spacing: 0.15em;
+  margin-bottom: 0.75rem;
+}
+
+.spotlight-label {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  letter-spacing: 0.4em;
+  font-weight: 700;
+  opacity: 0.5;
+}
+
+.spotlight-name {
+  font-size: 2.5rem;
+  font-weight: 900;
+  color: var(--accent);
+  font-family: "SF Mono", "Fira Code", "Cascadia Code", monospace;
+  letter-spacing: 0.05em;
+  margin: 0.5rem 0 1.5rem;
+  text-shadow: 0 0 30px var(--accent-glow);
+  word-break: break-word;
+}
+
+.spotlight-actions {
+  display: flex;
+  gap: 0.75rem;
+  justify-content: center;
+}
+
+.spotlight-copy {
+  padding: 0.5rem 1.5rem;
+  font-size: 0.7rem;
+}
+
+.reroll-btn {
+  background: transparent;
+  border: 1px solid var(--accent);
+  color: var(--accent);
+  padding: 0.5rem 1.5rem;
+  border-radius: 4px;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  cursor: pointer;
+  transition: all 0.2s;
+  font-family: inherit;
+}
+
+.reroll-btn:hover {
+  background: var(--accent-dim);
+}
+
+/* --- History --- */
+.history-section {
+  margin-top: 3rem;
+  border-top: 1px solid var(--border);
+  padding-top: 1.5rem;
+}
+
+.history-header {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  color: var(--text-secondary);
+  cursor: pointer;
+  user-select: none;
+}
+
+.toggle-arrow {
+  font-size: 0.6rem;
+  transition: transform 0.2s;
+}
+
+.clear-btn {
+  margin-left: auto;
+  background: transparent;
+  border: 1px solid var(--border);
+  color: var(--text-secondary);
+  padding: 0.2rem 0.6rem;
+  border-radius: 4px;
+  font-size: 0.55rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  cursor: pointer;
+  transition: all 0.2s;
+  font-family: inherit;
+}
+
+.clear-btn:hover {
+  border-color: #f85149;
+  color: #f85149;
+}
+
+.history-list {
+  margin-top: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  overflow: hidden;
+  transition: max-height 0.3s;
+}
+
+.history-list.collapsed {
+  max-height: 0 !important;
+  margin-top: 0;
+}
+
+.history-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.4rem 0.75rem;
+  background: var(--bg-secondary);
+  border-radius: 4px;
+  border: 1px solid transparent;
+  transition: border-color 0.2s;
+}
+
+.history-item:hover {
+  border-color: var(--border);
+}
+
+.history-name {
+  font-size: 0.8rem;
+  font-family: "SF Mono", "Fira Code", "Cascadia Code", monospace;
+  color: var(--text-primary);
+  letter-spacing: 0.03em;
+}
+
+/* --- Footer --- */
+.footer {
+  text-align: center;
+  padding: 2rem 1rem;
+  border-top: 1px solid var(--border);
+  margin-top: 2rem;
+}
+
+.footer p {
+  font-size: 0.7rem;
+  color: var(--text-secondary);
+  letter-spacing: 0.1em;
+  opacity: 0.5;
+}
+
+/* --- Responsive --- */
+@media (max-width: 600px) {
+  .container {
+    padding: 1.5rem 1rem;
+  }
+
+  .logo {
+    font-size: 3rem;
+  }
+
+  .results-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .spotlight-name {
+    font-size: 1.6rem;
+  }
+
+  .card-name {
+    font-size: 0.95rem;
+  }
+
+  .theme-pill {
+    font-size: 0.65rem;
+    padding: 0.3rem 0.7rem;
+  }
+}

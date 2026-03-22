@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ONG — Operation Name Generator</title>
+  <meta name="description" content="Generate random operation codenames for security projects and engagements.">
+  <meta property="og:title" content="ONG — Operation Name Generator">
+  <meta property="og:description" content="Generate random operation codenames for security projects.">
+  <meta property="og:type" content="website">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎯</text></svg>">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <div class="container">
+
+    <!-- Header -->
+    <header class="header">
+      <h1 class="logo">ONG</h1>
+      <p class="subtitle">OPERATION NAME GENERATOR</p>
+      <p class="tagline">Generate codenames for your security operations</p>
+    </header>
+
+    <!-- Mode Toggle -->
+    <section class="control-group">
+      <div class="toggle-row">
+        <button class="mode-btn active" data-mode="random">RANDOM</button>
+        <button class="mode-btn" data-mode="keyword">KEYWORD</button>
+      </div>
+    </section>
+
+    <!-- Keyword Input -->
+    <section class="control-group hidden" id="keywordGroup">
+      <label class="input-label" for="keywordInput">TARGET / TOPIC</label>
+      <input type="text" id="keywordInput" class="keyword-input" placeholder="e.g. bank, energy, tech..." autocomplete="off" spellcheck="false">
+    </section>
+
+    <!-- Theme Filters -->
+    <section class="control-group">
+      <div class="theme-filters" id="themeFilters">
+        <button class="theme-pill active" data-theme="all">ALL</button>
+        <button class="theme-pill" data-theme="mythology">⚡ Mythology</button>
+        <button class="theme-pill" data-theme="tactical">🎖 Tactical</button>
+        <button class="theme-pill" data-theme="nature">🌪 Nature</button>
+        <button class="theme-pill" data-theme="cyber">⟁ Cyber</button>
+        <button class="theme-pill" data-theme="predators">🐺 Predators</button>
+      </div>
+    </section>
+
+    <!-- Output Mode -->
+    <section class="control-group">
+      <div class="toggle-row">
+        <button class="output-btn active" data-output="batch">BATCH</button>
+        <button class="output-btn" data-output="spotlight">SPOTLIGHT</button>
+      </div>
+    </section>
+
+    <!-- Generate -->
+    <section class="control-group">
+      <button class="generate-btn" id="generateBtn">GENERATE</button>
+    </section>
+
+    <!-- Results -->
+    <div id="results" class="results-grid"></div>
+
+    <!-- History -->
+    <section class="history-section hidden" id="historySection">
+      <div class="history-header" id="historyToggle">
+        <span class="toggle-arrow">▼</span> RECENT
+        <button class="clear-btn" id="clearHistory">CLEAR</button>
+      </div>
+      <div id="historyList" class="history-list"></div>
+    </section>
+
+  </div>
+
+  <footer class="footer">
+    <p>ONG — Built for the security community</p>
+  </footer>
+
+  <script src="js/data.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
